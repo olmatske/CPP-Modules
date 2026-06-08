@@ -6,12 +6,11 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 12:57:03 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/08 14:01:43 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/08 14:38:27 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <algorithm>
 #include <string>
 #include <cctype>
 
@@ -20,11 +19,18 @@ using namespace std;
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	for (int i = 1; argv[i]; i++)
+	if (argc == 1)
+		cout << "* LOUD AND UBEARABLE FEEDBACK NOISE *";
+	else
 	{
-		string	str = argv[i];
-		transform(str.begin(), str.end(), str.begin(), ::toupper);
-		cout << str << " ";
+		for (int i = 1; argv[i]; i++)
+		{
+			string	str = argv[i];
+			for (size_t k = 0; k < str.length(); k++)
+				str[k] = toupper(static_cast<unsigned char>(str[k]));
+			cout << str << " ";
+		}
 	}
 	cout << endl;
+	return (0);
 }
