@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 15:34:28 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/08 20:29:22 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/09 00:08:46 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,15 @@
 #include <string>
 #include <cctype>
 #include <sstream>
+#include <limits>
+#include <iomanip>
 
+//////////////////////////////////////////////////////////////////
+const std::string MAGENTA = "\033[35m";
+const std::string CYAN = "\033[36m";
+const std::string RED = "\033[31m";
+const std::string RESET = "\033[0m";
+//////////////////////////////////////////////////////////////////
 using namespace std;
 //////////////////////////////////////////////////////////////////
 void	print_table_string(string value);
@@ -29,7 +37,7 @@ class Contact {
 		string	first_name;
 		string	last_name;
 		string	nickname;
-		int		phone_number;
+		string	phone_number;
 	
 	private:
 		string	darkest_secret;
@@ -52,20 +60,21 @@ class PhoneBook {
 
 		void	add(void) {
 			Contact New;
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "First Name: ";
-			cin >> New.first_name;
+			getline(cin, New.first_name);
 			cout << "Last Name: ";
-			cin >> New.last_name;
+			getline(cin, New.last_name);
 			cout << "Nickname: ";
-			cin >> New.nickname;
+			getline(cin, New.nickname);
 			cout << "Phone Number: ";
-			cin >> New.phone_number;
+			getline(cin, New.phone_number);
 			
 			contacts[nextIndex] = New;
 			if (count < 8)
 				count++;
 			nextIndex = (nextIndex + 1) % 8;
-			cout << "\n*** You added a contact ***\n";
+			cout << MAGENTA << "\n*** You added a contact ***\n" << RESET;
 		}
 
 		void	search(void) {
@@ -79,7 +88,7 @@ class PhoneBook {
 					print_table_string(contacts[i].first_name);
 					print_table_string(contacts[i].last_name);
 					print_table_string(contacts[i].nickname);
-					print_table_int(contacts[i].phone_number);
+					print_table_string(contacts[i].phone_number);
 					cout << endl;
 				}
 			}
