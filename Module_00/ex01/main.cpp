@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 15:38:59 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/09 14:01:36 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/09 14:17:52 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 		std::cout << MAGENTA << "You have the following options:\n" << RESET;
 		std::cout << "1. Add a contact:                       ADD\n";
 		std::cout << "2. Search a contact:                    SEARCH\n";
-		std::cout << "3.Exit the program and loose contacts:  EXIT\n\n";
+		std::cout << "3. Exit the program and loose contacts:  EXIT\n\n";
 		std::cout << CYAN << "Your choice: " << RESET;
 		if (!(std::cin >> prompt)) {
 			std::cin.clear();
