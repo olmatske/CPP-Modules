@@ -6,12 +6,12 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 12:57:03 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/09 14:01:17 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/09 14:42:51 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <std::string>
+#include <string>
 #include <cctype>
 
 using namespace std;

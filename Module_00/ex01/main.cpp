@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 15:38:59 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/09 14:17:52 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/09 17:08:11 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(void)
 
 	while (true && prompt != "exit")
 	{
+		std::cout << "_________________________________________________________\n";
+		std::cout << "_________________________________________________________\n";
 		std::cout << "\n";
 		std::cout << MAGENTA << "You have the following options:\n" << RESET;
 		std::cout << "1. Add a contact:                       ADD\n";

@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 15:34:28 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/09 14:28:28 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/09 16:54:10 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 //////////////////////////////////////////////////////////////////
 const std::string MAGENTA = "\033[1;35m";
 const std::string CYAN = "\033[1;36m";
-const std::string RED = "\033[31m";
+const std::string RED = "\033[1;31m";
 const std::string RESET = "\033[0m";
 //////////////////////////////////////////////////////////////////
 void	print_table_string(std::string value);
