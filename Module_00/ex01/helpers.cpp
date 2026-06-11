@@ -6,11 +6,11 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 20:22:32 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/09 14:06:23 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/09 17:19:38 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.h"
+#include "phonebook.hpp"
 
 static std::string	format(const std::string &s) {
 	std::string str = s;

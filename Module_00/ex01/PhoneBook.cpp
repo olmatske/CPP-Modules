@@ -6,11 +6,11 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:19:20 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/09 17:07:08 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/09 17:19:47 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.h"
+#include "phonebook.hpp"
 
 void	PhoneBook::add() {
 	Contact New;
