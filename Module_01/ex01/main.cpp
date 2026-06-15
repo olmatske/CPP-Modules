@@ -6,33 +6,50 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 13:09:58 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/14 17:15:39 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/15 14:39:16 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int	main(int argc, char **argv) {
-	int	horde = 0;
+	int	size = 0;
 
-	if (argc > 2)
-		std::cout << RED << "This program only accepts one or no parameters: ./horde\n" << R;
-	if (argc == 2)
-		horde = atoi(argv[1]);
+	if (argc > 2) {
+		std::cout << RED << "This program only accepts one or no parameters: " << C << "./horde [number of Zombies to create]\n" << R;
+		return (0);
+	}
+	if (argc == 2) {
+		size = atoi(argv[1]);
+		if (size <= 0) {
+			std::cout << RED << "Please provide a valid nu,eric input.\n" << R;
+			return (0);
+		}
+	}
 	else
-		horde = 7;
+		size = 7;
 
 	std::cout << "\n##########################################################" << R << std::endl;
-	std::cout << M << "----- Welcome to the Zombie program -----\n\n" << R;
-	std::cout << C << "Testing Stack allocation using randomChump()\n" << R;
+	std::cout << M << "----- Welcome to the Zombie Horde program -----\n\n" << R;
+	std::cout << C << "--- Creating Horde ---\n" << R;
 
-	std::cout << C << "Testing Heap allocation using newZombie()\n" << R;
+	Zombie	*horde = zombieHorde(size, "Bob");
+
+	std::cout << C << "\n--- Announcing existance --- \n" << R;
 	
-	Zombie	*heap = newZombie("HeapZombie");
-	heap->announce();
-	delete heap;
+	for (int i = 0; i < size; i++) {
+		horde[i].announce();
+	}
 
-	std::cout << M << "---------- End of the program ------------" << R;
+	std::cout << C << "\n--- Creating and accouncing a new Zombie --- \n" << R;
+	Zombie	*heap = newZombie("Bob the Heap Zombie");
+	heap->announce();
+
+	std::cout << C << "\n--- Killing Horde --- \n" << R;
+	delete heap;
+	delete[] horde;
+
+	std::cout << M << "\n------------- End of the program --------------" << R;
 	std::cout << "\n##########################################################" << R << std::endl;
 
 	return (0);

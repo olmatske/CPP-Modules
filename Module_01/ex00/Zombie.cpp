@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 13:10:09 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/12 13:00:21 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:03:23 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	Zombie::announce(void) {
 
 ////////////////////////////////////////////////////////////////////////////////
 Zombie::~Zombie() {
-	std::cout << R << _name << " destroyed\n" << R << std::endl;
+	std::cout << R << _name << " killed\n" << R << std::endl;
 }

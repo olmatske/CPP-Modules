@@ -6,15 +6,15 @@
 #    By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/11 13:10:01 by olmatske          #+#    #+#              #
-#    Updated: 2026/06/14 17:13:53 by olmatske         ###   ########.fr        #
+#    Updated: 2026/06/15 14:18:19 by olmatske         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = horde
 CXX = c++
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++17
 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC = main.cpp newZombie.cpp zombieHorde.cpp Zombie.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
