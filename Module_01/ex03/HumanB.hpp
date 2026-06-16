@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 20:14:06 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/16 13:11:17 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/16 13:26:30 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class HumanB {
 		Weapon	*_weapon; // Pointer can be NULL and be changed later
 	
 	public:
-		HumanB(std::string _name, Weapon *weapon);
+		HumanB(std::string _name);
 
 		void	setWeapon(Weapon &weapon);
 		void	attack();
