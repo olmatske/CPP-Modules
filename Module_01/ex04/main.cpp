@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 13:39:06 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/16 18:33:53 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/16 18:51:53 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include <fstream>
 #include <sstream>
 
-const std::string M = "\033[1;35m";
-const std::string C = "\033[1;36m";
 const std::string G = "\033[1;32m";
 const std::string RED = "\033[1;31m";
 const std::string R = "\033[0m";
