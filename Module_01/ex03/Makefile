@@ -6,11 +6,11 @@
 #    By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/15 15:02:20 by olmatske          #+#    #+#              #
-#    Updated: 2026/06/15 15:02:48 by olmatske         ###   ########.fr        #
+#    Updated: 2026/06/16 13:21:18 by olmatske         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = violence
+NAME = gladiator
 CXX = c++
 FLAGS = -Wall -Werror -Wextra -std=c++17
 

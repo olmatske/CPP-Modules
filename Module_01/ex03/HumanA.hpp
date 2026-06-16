@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 20:11:34 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/15 20:48:16 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/16 13:08:56 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 #include <iostream>
 #include <string>
 
-const std::string M = "\033[1;35m";
-const std::string C = "\033[1;36m";
-const std::string RED = "\033[1;31m";
-const std::string R = "\033[0m";
-
 class HumanA {
 	private:
 		std::string _name;
@@ -31,6 +26,8 @@ class HumanA {
 		HumanA(std::string _name, Weapon &weapon);
 
 		void	attack();
+
+		~HumanA();
 	
 };
 
