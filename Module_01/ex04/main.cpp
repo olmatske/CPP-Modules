@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 13:39:06 by olmatske          #+#    #+#             */
-/*   Updated: 2026/06/16 18:51:53 by olmatske         ###   ########.fr       */
+/*   Updated: 2026/06/17 09:23:03 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ const std::string R = "\033[0m";
 
 int	main(int argc, char **argv) {
 	if (argc != 4) {
-		std::cout << RED << "Invalid input: The following is rquired to run the program: ./sed [filename] [string1] [string2]" << R << std::endl;
-		return (0);
+		std::cout << RED << "Usage: ./sed [filename] [string1] [string2]" << R << std::endl;
+		return (1);
 	}
 	
 	std::string	filename = argv[1];
