@@ -10,3 +10,33 @@
 /*      ＼__二)                                               ࣪˖ ࣪ ₊  ★⊹ ࣪ ┆  ★ ⋆.*/
 /* ********************************************************** github/olmatske */
 
+#include "Fixed.hpp"
+
+Fixed::Fixed(int fix) {
+	fix = 0;
+}
+
+Fixed::Fixed(const Fixed &other) {
+
+}
+
+
+Fixed::Fixed& operator=(const Fixed &other) {
+
+}
+
+
+Fixed::~Fixed() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+Fixed::getRawBits(int const raw) {
+	_raw = (int)(fix * 256);
+		return (_raw);
+}
+
+Fixed::setRawBits() {
+	
+}
