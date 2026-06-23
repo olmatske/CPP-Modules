@@ -24,17 +24,25 @@ const std::string R = "\033[0m";
 
 class Fixed {
 	private:
-		int					_fix; // fixed point number value
-		static const int	_scint = 8; // storage of the number of tfractional bits
+		int					_raw; // fixed point number value
+		static const int	_bits = 8; // storage of the number of tfractional bits
 
 	public:
-		Fixed(int fix);
-		Fixed( const Fixed &other );
-		Fixed& operator=( const Fixed &other );
-		~Fixed();
+		Fixed();											// Default Constructor: sets up default object and ensures object
+		 													// is valid even when no argument gets passed
+
+		Fixed( const Fixed &other );						// Copy Constructor: Creates new objects independent of the source
+															// and prevents a shallow copy
+
+		Fixed& operator=( const Fixed &other );				// Assignment Operator: Takes already existing object and safely
+															// deletes old data replacing it with a deep copy of the new data
+
+		~Fixed();											// Destructor: Cleans up everything including dynamic memory,
+															// closes files etc, preventing memory leaks
 
 		int		getRawBits( ) const;
 		void	setRawBits( int const raw );
 };
 
 #endif
+

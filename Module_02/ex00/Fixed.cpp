@@ -12,31 +12,34 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(int fix) {
-	fix = 0;
+Fixed::Fixed() : _raw(0) {
+	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &other) {
-
+Fixed::Fixed(const Fixed &other) : _raw(other._raw) {
+	std::cout << "Copy cinstructor called" << std::endl;
+	this->_raw = other._raw;
 }
 
-
-Fixed::Fixed& operator=(const Fixed &other) {
-
+Fixed &Fixed::operator=(const Fixed &other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other) {
+		this->_raw = other._raw;
+	}
+	return (*this);
 }
-
 
 Fixed::~Fixed() {
-
+	std::cout << "Destructor called" << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Fixed::getRawBits(int const raw) {
-	_raw = (int)(fix * 256);
-		return (_raw);
+int	Fixed::getRawBits() const {
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->_raw);
 }
 
-Fixed::setRawBits() {
-	
+void	Fixed::setRawBits(int const raw) {
+	this->_raw = raw;
 }
