@@ -4,7 +4,7 @@
 /*            ／` ミ＿xノ                                    ࣪ ˖⋆˚★ ₊ ⊹　  ࣪˖ ࣪ ₊  ࣪ ˖*/
 /*           /　　　　 |                                    ˖⋆˚★ ₊ ⊹　  ࣪˖ ࣪ ₊  ࣪ ˖　*/
 /*          /　 ヽ　　 ﾉ           へ   ╱|、 ♡  ╱|、        ☆⊹ ࣪ ┆ ˖ ࣪　⊹ ࣪ ★ .˚  ⊹ */
-/*         │　　|　|　|       ૮ - ՛ ) (˚ˎ 。7  (` -  7           ˚★ ₊ ⊹　  ࣪˖ ࣪ ₊ */
+/*          │　　|　|　|       ૮ - ՛ ) (˚ˎ 。7  (` -  7           ˚★ ₊ ⊹　  ࣪˖ ࣪ ₊ */
 /*      ／￣ 　　 |　|　|       /  ⁻៸|  |、 ˜(    |、⁻(           ★ ₊ ⊹　  ࣪˖ ࣪ ࣪ ˖⋆ */
 /*      ( ( ヽ＿_ヽ_)__)   乀 (ˍ, ل ل  じしˍ,)ノ じしˍ,)ノ         　⊹ ࣪ ★ ⋆.˚    */
 /*      ＼__二)                                               ࣪˖ ࣪ ₊  ★⊹ ࣪ ┆  ★ ⋆.*/
@@ -48,23 +48,6 @@ class Fixed {
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-
-		bool	operator>(const Fixed &rhs) const;
-		bool	operator>=(const Fixed &rhs) const;
-		bool	operator<(const Fixed &rhs) const;
-		bool	operator<=(const Fixed &rhs) const;
-		bool	operator==(const Fixed &rhs) const;
-		bool	operator!=(const Fixed &rhs) const;
-
-		Fixed	operator+(const Fixed &rhs) const;
-		Fixed	operator-(const Fixed &rhs) const;
-		Fixed	operator*(const Fixed &rhs) const;
-		Fixed	operator/(const Fixed &rhs) const;
-
-		Fixed	operator++();		// Pre increment
-		Fixed	operator++(int);	// Post increment (dummy int)
-		Fixed	operator--();		// Post decrement
-		Fixed	operator--(int);	// Post decrement (dummy int)
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed);

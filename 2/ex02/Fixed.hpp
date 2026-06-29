@@ -4,7 +4,7 @@
 /*            ／` ミ＿xノ                                    ࣪ ˖⋆˚★ ₊ ⊹　  ࣪˖ ࣪ ₊  ࣪ ˖*/
 /*           /　　　　 |                                    ˖⋆˚★ ₊ ⊹　  ࣪˖ ࣪ ₊  ࣪ ˖　*/
 /*          /　 ヽ　　 ﾉ           へ   ╱|、 ♡  ╱|、        ☆⊹ ࣪ ┆ ˖ ࣪　⊹ ࣪ ★ .˚  ⊹ */
-/*         │　　|　|　|       ૮ - ՛ ) (˚ˎ 。7  (` -  7           ˚★ ₊ ⊹　  ࣪˖ ࣪ ₊ */
+/*          │　　|　|　|       ૮ - ՛ ) (˚ˎ 。7  (` -  7           ˚★ ₊ ⊹　  ࣪˖ ࣪ ₊ */
 /*      ／￣ 　　 |　|　|       /  ⁻៸|  |、 ˜(    |、⁻(           ★ ₊ ⊹　  ࣪˖ ࣪ ࣪ ˖⋆ */
 /*      ( ( ヽ＿_ヽ_)__)   乀 (ˍ, ل ل  じしˍ,)ノ じしˍ,)ノ         　⊹ ࣪ ★ ⋆.˚    */
 /*      ＼__二)                                               ࣪˖ ࣪ ₊  ★⊹ ࣪ ┆  ★ ⋆.*/
@@ -26,7 +26,7 @@ const std::string R = "\033[0m";
 class Fixed {
 	private:
 		int					_raw; // fixed point number value
-		static const int	_bits = 8; // storage of the number of tfractional bits
+		static const int	_bits = 8; // storage of the number of fractional bits
 
 	public:
 		Fixed();											// Default Constructor: sets up default object and ensures object
@@ -48,6 +48,28 @@ class Fixed {
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
+
+		bool	operator>(const Fixed &rhs) const;
+		bool	operator>=(const Fixed &rhs) const;
+		bool	operator<(const Fixed &rhs) const;
+		bool	operator<=(const Fixed &rhs) const;
+		bool	operator==(const Fixed &rhs) const;
+		bool	operator!=(const Fixed &rhs) const;
+
+		Fixed	operator+(const Fixed &rhs) const;
+		Fixed	operator-(const Fixed &rhs) const;
+		Fixed	operator*(const Fixed &rhs) const;
+		Fixed	operator/(const Fixed &rhs) const;
+
+		Fixed	&operator++();		// Pre increment
+		Fixed	operator++(int);	// Post increment (dummy int)
+		Fixed	&operator--();		// Post decrement
+		Fixed	operator--(int);	// Post decrement (dummy int)
+
+		static Fixed &min(Fixed &a, Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
+		static Fixed &max(Fixed &a, Fixed &b);
+		static const Fixed &max(const Fixed &a, const Fixed &b);
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed);

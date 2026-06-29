@@ -4,7 +4,7 @@
 /*            ／` ミ＿xノ                                    ࣪ ˖⋆˚★ ₊ ⊹　  ࣪˖ ࣪ ₊  ࣪ ˖*/
 /*           /　　　　 |                                    ˖⋆˚★ ₊ ⊹　  ࣪˖ ࣪ ₊  ࣪ ˖　*/
 /*          /　 ヽ　　 ﾉ           へ   ╱|、 ♡  ╱|、        ☆⊹ ࣪ ┆ ˖ ࣪　⊹ ࣪ ★ .˚  ⊹ */
-/*         │　　|　|　|       ૮ - ՛ ) (˚ˎ 。7  (` -  7           ˚★ ₊ ⊹　  ࣪˖ ࣪ ₊ */
+/*          │　　|　|　|       ૮ - ՛ ) (˚ˎ 。7  (` -  7           ˚★ ₊ ⊹　  ࣪˖ ࣪ ₊ */
 /*      ／￣ 　　 |　|　|       /  ⁻៸|  |、 ˜(    |、⁻(           ★ ₊ ⊹　  ࣪˖ ࣪ ࣪ ˖⋆ */
 /*      ( ( ヽ＿_ヽ_)__)   乀 (ˍ, ل ل  じしˍ,)ノ じしˍ,)ノ         　⊹ ࣪ ★ ⋆.˚    */
 /*      ＼__二)                                               ࣪˖ ࣪ ₊  ★⊹ ࣪ ┆  ★ ⋆.*/
@@ -12,19 +12,34 @@
 
 #include "Fixed.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
+Fixed::Fixed() : _raw(0) {
+	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed &other) : _raw(other._raw) {
+	std::cout << "Copy instructor called" << std::endl;
+	this->_raw = other._raw;
+}
+
+Fixed &Fixed::operator=(const Fixed &other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other) {
+		this->_raw = other._raw;
+	}
+	return (*this);
+}
+
+Fixed::~Fixed() {
+	std::cout << "Destructor called" << std::endl;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+int	Fixed::getRawBits() const {
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->_raw);
+}
+
+void	Fixed::setRawBits(int const raw) {
+	this->_raw = raw;
 }
