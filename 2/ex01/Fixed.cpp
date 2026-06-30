@@ -56,7 +56,7 @@ float	Fixed::toFloat( void ) const {
 }
 
 int		Fixed::toInt( void ) const {
-	return ((this->getRawBits()) / static_cast<float>(1 << _bits));
+	return (this->getRawBits() >> _bits);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
