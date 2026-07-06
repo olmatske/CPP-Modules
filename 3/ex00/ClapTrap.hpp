@@ -15,15 +15,25 @@
 
 #include <iostream>
 
+const std::string M = "\033[1;35m";
+const std::string G = "\033[1;32m";
+const std::string C = "\033[1;36m";
+const std::string RED = "\033[1;31m";
+const std::string P = "\033[1;38;5;216m";
+const std::string R = "\033[0m";
+
 class ClapTrap {
-	private:
+	protected:                      // main difference from private is that children can access it
 		std::string _name;
 		int			_hitpoints;
 		int			_energy;
-		int			_dmg;
+		int			_damage;
 
 	public:
-		Fixed	
+		ClapTrap();
+		ClapTrap( const ClapTrap &other );
+		ClapTrap& operator=( const ClapTrap &other );
+		~ClapTrap();
 
 		void	attack( const std::string &target );
 		void	takeDamage( unsigned int amount );
