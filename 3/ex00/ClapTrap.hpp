@@ -10,6 +10,8 @@
 /*      ＼__二)                                               ࣪˖ ࣪ ₊  ★⊹ ࣪ ┆  ★ ⋆.*/
 /* ********************************************************** github/olmatske */
 
+
+
 #ifndef __CLAPTRAP_HPP__
 #define __CLAPTRAP_HPP__
 
@@ -40,6 +42,7 @@ class ClapTrap {
 		void	beRepaired( unsigned int amount );
 
 };
+
 
 
 #endif
