@@ -10,11 +10,11 @@
 #      ＼__二)                                               ࣪˖ ࣪ ₊  ★⊹ ࣪ ┆  ★ ⋆.#
 # ********************************************************** github/olmatske #
 
-NAME = math
+NAME = ClapTrap
 CXX = c++
 FLAGS = -Wall -Werror -Wextra -std=c++17
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

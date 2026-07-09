@@ -18,7 +18,7 @@ ClapTrap::ClapTrap() :
 	_energy(10),
 	_damage(0)
 {
-	std::cout << M << "Default constructor called" << R << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap &other ) :
@@ -27,12 +27,12 @@ ClapTrap::ClapTrap( const ClapTrap &other ) :
 	_energy(other._energy),
 	_damage(other._damage)
 {
-	std::cout << M << "Copy instructor called" << R << std::endl;
+	std::cout << "Copy instructor called" << std::endl;
 	this->_name = other._name;
 }
 
 ClapTrap &ClapTrap::operator=( const ClapTrap &other ) {
-	std::cout << M << "Copy assignment operator called" << R << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_name = other._name;
 	}
