@@ -18,7 +18,7 @@ int	main() {
 
 	std::cout << C << "\nBuilding Class..." << R << std::endl;
 	
-	ClapTrap	Bob;
+	ClapTrap	Bob("Bob");
 	ClapTrap	Travis( Bob );
 	ClapTrap	Kevin;
 
@@ -27,7 +27,8 @@ int	main() {
 	std::cout << C << "\nInitiaing Actions..." << R << std::endl;
 
 	Bob.attack("Travis");
-	Bob.takeDamage(3);
+	Bob.beRepaired(4);
+	Bob.takeDamage(14);
 	Bob.beRepaired(4);
 
 	std::cout << M << "\n               End of Program!" << R << std::endl;

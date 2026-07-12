@@ -52,6 +52,7 @@ ScavTrap::~ScavTrap() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+
 void	ScavTrap::attack( const std::string &target ) {
 	if (_energy <= 0) {
 		std::cout << P << "ScavTrap " << _name << " can't attack. More energy required." << R << std::endl;
@@ -68,11 +69,6 @@ void	ScavTrap::attack( const std::string &target ) {
 	return;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-void	ScavTrap::takeDamage( unsigned int amount ) {
-	_hitpoints -= amount;
-	std::cout << P << "ScavTrap " << _name << " took " << amount << " points of damage! Current health: " << R << _hitpoints << "." << std::endl;
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void	ScavTrap::beRepaired( unsigned int amount ) {
@@ -90,3 +86,15 @@ void	ScavTrap::beRepaired( unsigned int amount ) {
 		std::cout << P << "ScavTrap " << _name << " gained " << amount << " amount of hitpoints through repair. Current health: " << _hitpoints << "." << R << std::endl;
 	}
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void	ScavTrap::takeDamage( unsigned int amount ) {
+	_hitpoints -= amount;
+	std::cout << P << "ScavTrap " << _name << " took " << amount << " points of damage! Current health: " << _hitpoints << "." << R << std::endl;
+}
+
+void	ScavTrap::guardGate() {
+	std::cout << P << "ScavTrap " << _name << " is now in Gatekeeping mode." << R << std::endl;
+}
+

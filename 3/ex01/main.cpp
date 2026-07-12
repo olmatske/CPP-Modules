@@ -19,8 +19,8 @@ int	main() {
 
 	std::cout << C << "\nBuilding Classes..." << R << std::endl;
 	
-	ClapTrap	Bob;
-	ClapTrap	Travis( Bob );
+	ClapTrap	Peter("Peter");
+	ClapTrap	Travis( Peter );
 	ClapTrap	Kevin;
 
 	ScavTrap	Serena;
@@ -32,9 +32,10 @@ int	main() {
 
 	std::cout << C << "\nInitiaing Actions..." << R << std::endl;
 
-	Bob.attack("Travis");
-	Bob.takeDamage(3);
-	Bob.beRepaired(4);
+	Peter.attack("Travis");
+	Peter.beRepaired(4);
+	Peter.takeDamage(14);
+	Peter.beRepaired(4);
 
 	Serena.attack("Hannah");
 	Serena.takeDamage(3);

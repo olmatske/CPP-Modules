@@ -10,31 +10,52 @@
 /*      ＼__二)                                               ࣪˖ ࣪ ₊  ★⊹ ࣪ ┆  ★ ⋆.*/
 /* ********************************************************** github/olmatske */
 
-#ifndef __SCAVTRAP_HPP__
-#define __SCAVTRAP_HPP__
-
-#include <iostream>
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap: public ClapTrap {
-	protected:
-		std::string _name;
-		int			_hitpoints;
-		int			_energy;
-		int			_damage;
-	public:
-		ScavTrap();
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &other );
-		ScavTrap& operator=( const ScavTrap &other );
-		~ScavTrap();
+int	main() {
+	std::cout << G << "=========================================================" << R << std::endl;
+	std::cout << M << "        Welcome to the ScavTrap Program!" << R << std::endl;
 
-		void	attack( const std::string &target );
-		void	takeDamage( unsigned int amount );
-		void	beRepaired( unsigned int amount );
-		void	guardGate();
-};
+	std::cout << C << "\nBuilding Classes..." << R << std::endl;
+	
+	ClapTrap	Peter("Peter");
+	ClapTrap	Travis( Peter );
+	ClapTrap	Kevin;
 
+	ScavTrap	Serena;
+	ScavTrap	Hannah( Serena );
+	ScavTrap	Jennifer;
 
+	FragTrap	Stewie("Stewie");
+	FragTrap	Teddy( Stewie );
+	FragTrap	Mew;
 
-#endif
+	Kevin = Travis;
+	Jennifer = Hannah;
+	Mew = Teddy;
+
+	std::cout << C << "\nInitiaing Actions..." << R << std::endl;
+
+	Peter.attack("Travis");
+	Peter.beRepaired(4);
+	Peter.takeDamage(14);
+	Peter.beRepaired(4);
+
+	Serena.attack("Hannah");
+	Serena.takeDamage(80);
+	Serena.beRepaired(69);
+	Serena.guardGate();
+
+	Stewie.attack("Teddy");
+	Stewie.beRepaired(100);
+	Stewie.takeDamage(199);
+	Stewie.highFivesGuys();
+
+	std::cout << M << "\n               End of Program!" << R << std::endl;
+	std::cout << G << "=========================================================\n" << R << std::endl;
+
+	std::cout << M << "Cleaning up..." << R << std::endl;
+	return (0);
+}

@@ -25,7 +25,7 @@ Fixed::Fixed( float const value ) : _raw(roundf(value * (1 << _bits))) {
 }
 
 Fixed::Fixed(const Fixed &other) : _raw(other._raw) {
-	std::cout << "Copy instructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	this->_raw = other._raw;
 }
 

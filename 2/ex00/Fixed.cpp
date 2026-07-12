@@ -17,7 +17,7 @@ Fixed::Fixed() : _raw(0) {
 }
 
 Fixed::Fixed(const Fixed &other) : _raw(other._raw) {
-	std::cout << "Copy instructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	this->_raw = other._raw;
 }
 

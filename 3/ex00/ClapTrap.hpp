@@ -16,6 +16,7 @@
 #define __CLAPTRAP_HPP__
 
 #include <iostream>
+#include <string>
 
 const std::string M = "\033[1;35m";
 const std::string G = "\033[1;32m";
@@ -27,12 +28,13 @@ const std::string R = "\033[0m";
 class ClapTrap {
 	protected:                      // main difference from private is that children can access it
 		std::string _name;
-		int			_hitpoints;
+		int			_hitpoints;     // health
 		int			_energy;
 		int			_damage;
 
 	public:
 		ClapTrap();
+		ClapTrap( std::string name );
 		ClapTrap( const ClapTrap &other );
 		ClapTrap& operator=( const ClapTrap &other );
 		~ClapTrap();
@@ -42,7 +44,5 @@ class ClapTrap {
 		void	beRepaired( unsigned int amount );
 
 };
-
-
 
 #endif
