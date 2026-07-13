@@ -17,7 +17,7 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap {
+class FragTrap: virtual public ClapTrap {
 	protected:
 		std::string _name;
 		int			_hitpoints;

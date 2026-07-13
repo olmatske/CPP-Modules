@@ -11,28 +11,37 @@
 /* ********************************************************** github/olmatske */
 
 #include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
 
-DiamondTrap::DiamondTrap() :
-	_name("Bob")
-{
-	std::cout << "Default constructor called" << std::endl;
+DiamondTrap::DiamondTrap() : ClapTrap("EnderDragon_clap_name"), FragTrap(), ScavTrap() {
+	this->_name = "EnderDragon";
+	this->_hitpoints = 100;
+	this->_energy = 50;
+	this->_damage = 30;
+
+	ClapTrap::_name = "EnderDragon_clap_name";
+	std::cout << pp << "Default constructor called" << R << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) :
-	_name(name)
-{
-	std::cout << "Parameterizes constructor called" << std::endl;
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name) {
+	this->_name = name;
+	this->_hitpoints = 100;
+	this->_energy = 50;
+	this->_damage = 30;
+
+
+	std::cout << pp << "Parameterizes constructor called" << R << std::endl;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap &other ) :
+DiamondTrap::DiamondTrap( const DiamondTrap &other ) : ClapTrap(other), FragTrap(other), ScavTrap(other)
 	_name(other._name)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << pp << "Copy constructor called" << R << std::endl;
 	this->_name = other._name;
 }
 
 DiamondTrap &DiamondTrap::operator=( const DiamondTrap &other ) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << pp << "Copy assignment operator called" << R << std::endl;
 	if (this != &other) {
 		this->_name = other._name;
 	}
@@ -40,5 +49,10 @@ DiamondTrap &DiamondTrap::operator=( const DiamondTrap &other ) {
 }
 
 DiamondTrap::~DiamondTrap() {
-	std::cout << "DiamondTrap Destructor called" << std::endl;
+	std::cout << pp << "DiamondTrap Destructor called" << R << std::endl;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void	DiamondTrap::whoAmI() {
+	std::cout << pp << "Am I " << this->_name << " or am I " << ClapTrap::_name << "?" << R << std::endl;
 }
