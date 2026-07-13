@@ -93,6 +93,6 @@ void	FragTrap::takeDamage( unsigned int amount ) {
 }
 
 void	FragTrap::highFivesGuys(void) {
-	std::cout << g << "Frag Trap " << _name << " requests a high Five!" << R << std::endl;
+	std::cout << g << "FragTrap " << _name << " requests a high Five! Please give him one, he's very lonely." << R << std::endl;
 }
 
