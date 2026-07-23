@@ -12,22 +12,28 @@
 
 #include "Animal.hpp"
 
-Animal::Animal( std::string type ) : _type("Animal") {
+Animal::Animal() : _type("Animal") {}
+
+Animal::Animal( std::string type ) : _type(type) {
 	_type = type;
 }
 
-Animal::Animal( const Animal &other ) : _type(other.type) {
+Animal::Animal( const Animal &other ) : _type(other._type) {
 	this->_type = other._type;
 }
 
-Animal::nimal& operator=( const Animal &other ) {
-
+Animal &Animal::operator=( const Animal &other ) {
+	if (this != &other) {
+		this->_type = other._type;
+	}
+	return (*this);
 }
 
-Animal::~Animal() {
+Animal::~Animal() {}
 
-}
+////////////////////////////////////////////////////////////////////////////////
 
 void	Animal::makeSound() {
-
+	std::cout << "*Animal sounds...*" << std::endl;
 }
+
