@@ -12,28 +12,38 @@
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Animal") {}
-
-Animal::Animal( std::string type ) : _type(type) {
-	_type = type;
+Animal::Animal() : type("Animal") {
+	std::cout << G << "Animal default constructor called" << R << std::endl;
 }
 
-Animal::Animal( const Animal &other ) : _type(other._type) {
-	this->_type = other._type;
+Animal::Animal( std::string type ) : type(type) {
+	std::cout << G << "Animal parametarized constructor called" << R << std::endl;
+}
+
+Animal::Animal( const Animal &other ) : type(other.type) {
+	std::cout << G << "Animal copy constructor called" << R << std::endl;
+	this->type = other.type;
 }
 
 Animal &Animal::operator=( const Animal &other ) {
+	std::cout << G << "Animal assignment operator called" << R << std::endl;
 	if (this != &other) {
-		this->_type = other._type;
+		this->type = other.type;
 	}
 	return (*this);
 }
 
-Animal::~Animal() {}
+Animal::~Animal() {
+	std::cout << G << "Animal Destructor called" << R << std::endl;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void	Animal::makeSound() {
-	std::cout << "*Animal sounds...*" << std::endl;
+void	Animal::makeSound() const {
+	std::cout << G << "*Animal sounds...*" << R << std::endl;
+}
+
+std::string	Animal::getType() const {
+	return (this->type);
 }
 

@@ -16,19 +16,35 @@
 #include <iostream>
 #include <string>
 
+const std::string M = "\033[1;35m";
+const std::string G = "\033[1;32m";
+const std::string C = "\033[1;36m";
+const std::string RED = "\033[1;31m";
+const std::string P = "\033[38;5;216m";
+const std::string g = "\033[32m";
+const std::string R = "\033[0m";
+
 class Animal {
 	protected:
-		std::string	_type;
+		std::string	type;
 	
 	public:
 		Animal();
 		Animal( std::string type );
 		Animal( const Animal &other );
 		Animal& operator=( const Animal &other );
-		~Animal();
+		virtual ~Animal();
 
-		void	makeSound();
-;}
+		virtual void	makeSound() const ;
+		std::string		getType() const ;
+};
 
+// virtual is needed in destructor because otherwise it will only call the
+// 		Animal's destructor only, which will leak in the Cat and Dog classes
+
+// virtual in makeSound() is there to distinguish between the classes, without
+// 		the keyword the Cat and Dog classes would display Animal's sounds
+
+// essentially virtual allows method funcs to overwrite the base methods
 
 #endif
