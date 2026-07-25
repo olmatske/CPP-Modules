@@ -23,7 +23,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("EnderDragon_clap_name"), ScavTrap(), Frag
 	std::cout << c << "Default constructor called" << R << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap() {
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name) {
 	this->_name = name;
 	FragTrap::_hitpoints = 100;
 	ScavTrap::_energy = 50;
@@ -32,7 +32,7 @@ DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), Sc
 	std::cout << c << "Parameterizes constructor called" << R << std::endl;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap &other ) : ClapTrap(other), ScavTrap(), FragTrap(), _name(other._name) {
+DiamondTrap::DiamondTrap( const DiamondTrap &other ) : ClapTrap(other), ScavTrap(other), FragTrap(other), _name(other._name) {
 	std::cout << c << "Copy constructor called" << R << std::endl;
 	this->_name = other._name;
 }

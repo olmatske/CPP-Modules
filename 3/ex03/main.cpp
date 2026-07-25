@@ -25,7 +25,7 @@ int	main() {
 	ClapTrap	Travis( Peter );
 	ClapTrap	Kevin;
 
-	ScavTrap	Serena;
+	ScavTrap	Serena; // called via default constructor so it uses a default name
 	ScavTrap	Hannah( Serena );
 	ScavTrap	Jennifer;
 
