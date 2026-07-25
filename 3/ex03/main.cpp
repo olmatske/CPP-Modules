@@ -13,6 +13,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main() {
 	std::cout << G << "=========================================================" << R << std::endl;
@@ -32,9 +33,14 @@ int	main() {
 	FragTrap	Teddy( Stewie );
 	FragTrap	Mew;
 
+	DiamondTrap	Wither("Wither");
+	DiamondTrap	Golem(Wither);
+	DiamondTrap	Warden;
+
 	Kevin = Travis;
 	Jennifer = Hannah;
 	Mew = Teddy;
+	Warden = Golem;
 
 	std::cout << C << "\nInitiaing Actions..." << R << std::endl;
 
@@ -52,6 +58,14 @@ int	main() {
 	Stewie.beRepaired(100);
 	Stewie.takeDamage(199);
 	Stewie.highFivesGuys();
+
+	Wither.attack("Golem");
+	Wither.beRepaired(4);
+	Wither.takeDamage(14);
+	Wither.beRepaired(4);
+	Wither.guardGate();
+	Wither.highFivesGuys();
+	Wither.whoAmI();
 
 	std::cout << M << "\n               End of Program!" << R << std::endl;
 	std::cout << G << "=========================================================\n" << R << std::endl;

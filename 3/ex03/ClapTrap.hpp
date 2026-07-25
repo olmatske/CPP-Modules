@@ -23,6 +23,7 @@ const std::string P = "\033[1;38;5;216m";
 const std::string R = "\033[0m";
 
 const std::string p = "\033[38;5;216m";
+const std::string c = "\033[36m";
 const std::string g = "\033[32m";
 const std::string pp = "\033[35m";
 

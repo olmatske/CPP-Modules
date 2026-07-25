@@ -30,6 +30,9 @@ class DiamondTrap: public ScavTrap, public FragTrap {
 		~DiamondTrap();
 
 		using	ScavTrap::attack;
+		using	ScavTrap::guardGate;
+		using	FragTrap::highFivesGuys;
+
 		void	whoAmI();
 };
 
