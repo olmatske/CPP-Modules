@@ -11,14 +11,14 @@
 /* ********************************************************** github/olmatske */
 
 #include "Brain.hpp"
-#include "Animal.cpp" // only used for colors!
+#include "Animal.hpp"
 
 Brain::Brain() : ideas() {
-	std::cout << P << "Brain appeared" << R << std::endl;
+	std::cout << PP << "Brain appeared" << R << std::endl;
 }
 
 Brain::~Brain() {
-	std::cout << P << "Brain disappeared" << R << std::endl;
+	std::cout << PP << "Brain disappeared" << R << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -41,6 +41,14 @@ int main()
 	j->makeSound();
 	meta->makeSound();
 
+	std::cout << P << "\n====== Testing Deep Copy ======" << R << std::endl;
+	Cat original;
+	original.getBrain()->setIdea(0, "My poop seems to be very important if humans collect it immediately after defacating...");
+	Cat copy(original);							// create a copy using the copy constructor
+	original.getBrain()->setIdea(0, "I love pissing on your bed and then pretending like I'm disgusted and surprised how it got there in the first place");	// changing the original dog's idea
+	std::cout << "Original's idea: " << original.getBrain()->getIdea(0) << std::endl;	// proving the copy has its own separate brain
+	std::cout << "Copy's idea: " << copy.getBrain()->getIdea(0) << std::endl;
+
 	std::cout << P << "\n====== Calling destructors ======" << R << std::endl;
 	delete i;
 	delete j;

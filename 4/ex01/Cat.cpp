@@ -14,25 +14,35 @@
 
 Cat::Cat() {
 	this->type = "Cat";
-	std::cout << M << "Cat default constructor called" << R << std::endl;
+	_brain = new Brain();
+	std::cout << C << "Cat default constructor called" << R << std::endl;
 }
 
 Cat::Cat( const Cat &other ) :Animal(other) {
 	this->type = other.type;
-	std::cout << M << "Cat copy constructor called" << R << std::endl;
+	this->_brain = new Brain();
+	
+	for (int i = 0; i < 100; i++)
+		this->_brain->setIdea(i, other._brain->getIdea(i));
+
+	std::cout << C << "Cat copy constructor called" << R << std::endl;
 }
 
 Cat &Cat::operator=( const Cat &other ) {
-	std::cout << M << "Cat assignment operator called" << R << std::endl;
+	std::cout << C << "Cat assignment operator called" << R << std::endl;
 	if (this != &other) {
-		Animal::operator=(other); // good practice
-		this->type = other.type;
+		Animal::operator=(other);				// good practice
+
+		delete this->_brain;
+		this->_brain = new Brain();
+		*(this->_brain) = *(other._brain);		// exact same thing as the for loop but cleaner
 	}
 	return (*this);
 }
 
 Cat::~Cat() {
-	std::cout << M << "Cat Destructor called" << R << std::endl;
+	delete this->_brain;
+	std::cout << C << "Cat Destructor called" << R << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -41,3 +51,6 @@ void	Cat::makeSound() const {
 	std::cout << M << "MEOOOOW MARWWWW HISSSSSS" << R << std::endl;
 }
 
+Brain *Cat::getBrain() const {
+	return (this->_brain);
+}
