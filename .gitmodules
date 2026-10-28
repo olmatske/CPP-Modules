@@ -1,0 +1,3 @@
+[submodule "CPP-Script"]
+	path = CPP-Script
+	url = git@github.com:olmatske/CPP-Script.git
