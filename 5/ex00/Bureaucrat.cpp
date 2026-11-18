@@ -13,11 +13,11 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Bob"), _grade(75) {
-	std::cout << M <<"Default constructor called" << R << std::endl;
+	std::cout << pp << _name << ": Default constructor called" << R << std::endl;
 }
 
 Bureaucrat::Bureaucrat( const std::string &name, int grade ) : _name(name), _grade(grade) {
-	std::cout << M <<"Parameterizes constructor called" << R << std::endl;
+	std::cout << pp << _name << ": Parameterizes constructor called" << R << std::endl;
 
 	if (_grade < 1) {
 		throw GradeTooHighException();
@@ -28,11 +28,11 @@ Bureaucrat::Bureaucrat( const std::string &name, int grade ) : _name(name), _gra
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat &other ) : _name(other._name), _grade(other._grade) {
-	std::cout << M <<"Copy constructor called" << R << std::endl;
+	std::cout << pp << _name << ": Copy constructor called" << R << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=( const Bureaucrat &other ) {
-	std::cout << M <<"Copy assignment operator called" << R << std::endl;
+	std::cout << pp << _name << ": Copy assignment operator called" << R << std::endl;
 	if (this != &other) {
 		_grade = other._grade;
 	}
@@ -40,7 +40,7 @@ Bureaucrat &Bureaucrat::operator=( const Bureaucrat &other ) {
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << M <<"Destructor called" << R << R << std::endl;
+	std::cout << pp << _name << ": Destructor called" << R << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -56,7 +56,7 @@ int			Bureaucrat::getGrade() const {
 
 void		Bureaucrat::lowerGrade() {
 	if ((this->_grade) >= 150)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 	else
 		this->_grade++;
 }
@@ -77,8 +77,8 @@ const char *Bureaucrat::GradeTooLowException::what() const noexcept {
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
-	out << C << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
-	<< "." << R;
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
+	<< ".";
 
 	return (out);
 }
