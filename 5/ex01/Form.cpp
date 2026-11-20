@@ -13,7 +13,7 @@
 #include "Form.hpp"
 #include "Colors.hpp"
 
-Form::Form() : _name("Bob"), _signed(false), _reqSign(70), _reqExec(50) {
+Form::Form() : _name("Paperwork"), _signed(false), _reqSign(70), _reqExec(50) {
 	std::cout << pp << _name << ": Default constructor called" << R << std::endl;
 }
 

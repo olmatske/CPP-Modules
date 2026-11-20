@@ -18,7 +18,7 @@
 int	main() {
 
 	std::cout << G << "═══════════════════════════════════════════════" << R << std::endl;
-	std::cout << G << "	 Form up, maggots!		  " << R << std::endl;
+	std::cout << G << "	      Form up, maggots!		  " << R << std::endl;
 	std::cout << G << "═══════════════════════════════════════════════" << R << std::endl;
 
 
@@ -33,11 +33,7 @@ int	main() {
 
 		std::cout << Default << std::endl;
 		std::cout << Finances << std::endl;
-		std::cout << "Name: " << Finances.getName() << std::endl;
-		std::cout << "Signed: " << (Finances.getStatus() ? "yes" : "no") << std::endl;
-		std::cout << "Required signing grade: " << Finances.getReqSigned() << std::endl;
-		std::cout << "Required execution grade: " << Finances.getReqExec() << std::endl;
-		std::cout << Copy << std::endl;
+		std::cout << Copy << std::endl << std::endl;
 	}
 	catch (const std::exception &e) {
 		std::cout << RED << e.what() << R << std::endl;
