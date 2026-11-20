@@ -88,9 +88,9 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 void	Bureaucrat::signForm(Form &form) {
 	try {
 		form.beSigned(*this);
-		std::cout << G << _name << "signed" << form.getName() << "." << std::endl;
+		std::cout << G << _name << " signed " << form.getName() << "." << R << std::endl;
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << _name << "could not sign" << form.getName() << "because" << e.what() << R << std::endl;
+		std::cout << RED << _name << " could not sign " << form.getName() << " because " << e.what() << R << std::endl;
 	}
 }
