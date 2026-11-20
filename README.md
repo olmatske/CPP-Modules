@@ -8,3 +8,6 @@
 
 **All getter functions should have a `const` at the end.**
 
+
+
+find . -type f -name '*.o' -delete
