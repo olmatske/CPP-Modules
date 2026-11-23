@@ -14,21 +14,20 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "Colors.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <string>
 
-class PresidentialPardonForm {
+class PresidentialPardonForm : public AForm {
 
 	private:
-		std::string _name = "Bob";
+		std::string _target;
+
+		void	executeAction() const override;
 
 	public:
-		PresidentialPardonForm();
-		PresidentialPardonForm( std::string type );
-		PresidentialPardonForm( const PresidentialPardonForm &other );
-		PresidentialPardonForm& operator=( const PresidentialPardonForm &other );
-		~PresidentialPardonForm();
 
+	
 };
 
 #endif

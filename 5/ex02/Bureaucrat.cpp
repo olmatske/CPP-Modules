@@ -11,7 +11,7 @@
 /* ********************************************************** github/olmatske */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Colors.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Bob"), _grade(75) {
@@ -85,12 +85,12 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 	return (out);
 }
 
-void	Bureaucrat::signForm(Form &form) {
+void	Bureaucrat::signAForm(AForm &AForm) {
 	try {
-		form.beSigned(*this);
-		std::cout << G << _name << " signed " << form.getName() << "." << R << std::endl;
+		AForm.beSigned(*this);
+		std::cout << G << _name << " signed " << AForm.getName() << "." << R << std::endl;
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << _name << " could not sign " << form.getName() << " because " << e.what() << R << std::endl;
+		std::cout << RED << _name << " could not sign " << AForm.getName() << " because " << e.what() << R << std::endl;
 	}
 }

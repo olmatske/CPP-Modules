@@ -17,7 +17,7 @@
 #include <string>
 #include <exception>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -36,7 +36,7 @@ class Bureaucrat {
 		int			getGrade()const;
 		void		lowerGrade();		// +1
 		void		increaseGrade();	// -1
-		void		signForm(Form &form);
+		void		signAForm(AForm &AForm);
 
 		class	GradeTooHighException : public std::exception {
 			public:
