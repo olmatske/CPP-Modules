@@ -28,10 +28,10 @@ void	RobotomyRequestForm::executeAction() const {
 	std::cout << "VRRRRRRRRR - GRGRGRGRGRGRGRGRGR - VRR VRRR " << std::endl;
 
 	if (coin(gen)) {
-		std::cout << _target << "has been robotomized successfully" << std::endl;
+		std::cout << _target << " has been robotomized successfully" << std::endl;
 	}
 	else {
-		std::cout << "The robotomy on" << _target << " failed" << std::endl; 
+		std::cout << "The robotomy on " << _target << " failed" << std::endl; 
 	}
 }
 

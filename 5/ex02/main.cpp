@@ -11,157 +11,180 @@
 /* ********************************************************** github/olmatske */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Colors.hpp"
-
+#include <fstream>
+#include <sstream>
 
 int	main() {
 
 	std::cout << G << "═══════════════════════════════════════════════" << R << std::endl;
-	std::cout << G << "	      AForm up, maggots!		  " << R << std::endl;
+	std::cout << G << "	 No, you need form 28B, not 28C!	  " << R << std::endl;
 	std::cout << G << "═══════════════════════════════════════════════" << R << std::endl;
 
 
 	std::cout << M << "\n═══════════════════════════════════════════════" << R << std::endl;
-	std::cout << M << "1. Meet the AForms! Constructors and getters." << R << std::endl;
+	std::cout << M << "1. Meet the forms!" << R << std::endl;
 	std::cout << M << "═══════════════════════════════════════════════" << R << std::endl;
 
 	try {
-		AForm Default;
-		const AForm Finances("Finances", 100, 50);
-		AForm Copy(Finances);
+		ShrubberyCreationForm Shrubbery("home");
+		RobotomyRequestForm Robot("Bender");
+		PresidentialPardonForm Pardon("Arthur Dent");
 
-		std::cout << Default << std::endl;
-		std::cout << Finances << std::endl;
-		std::cout << Copy << std::endl << std::endl;
+		std::cout << Shrubbery << std::endl;
+		std::cout << Robot << std::endl;
+		std::cout << Pardon << std::endl;
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << e.what() << R << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 
 	std::cout << M << "\n═══════════════════════════════════════════════" << R << std::endl;
-	std::cout << M << "2. Peter signs a AForm. Saul cannot." << R << std::endl;
+	std::cout << M << "2. Saul cannot sign. Kim can." << R << std::endl;
 	std::cout << M << "═══════════════════════════════════════════════" << R << std::endl;
 
 	try {
-		Bureaucrat Peter("Peter", 75);
 		Bureaucrat Saul("Saul", 150);
-		AForm Finances("Finances", 100, 50);
+		Bureaucrat Kim("Kim", 1);
+		ShrubberyCreationForm Shrubbery("home");
+		RobotomyRequestForm Robot("Bender");
+		PresidentialPardonForm Pardon("Arthur Dent");
 
-		std::cout << Peter << std::endl;
 		std::cout << Saul << std::endl;
-		std::cout << Finances << std::endl << std::endl;
+		std::cout << Kim << std::endl << std::endl;
 
-		std::cout << g << "Saul tries first. Expected: failure." << R << std::endl;
-		Saul.signAForm(Finances);
-		std::cout << "Still unsigned: "
-					<< (!Finances.getStatus() ? "PASS" : "FAIL") << std::endl << std::endl;
+		Saul.signAForm(Shrubbery);
+		Saul.signAForm(Robot);
+		Saul.signAForm(Pardon);
+		std::cout << "All still unsigned: "
+					<< (!Shrubbery.getStatus() && !Robot.getStatus()
+						&& !Pardon.getStatus() ? "PASS" : "FAIL")
+					<< std::endl << std::endl;
 
-		std::cout << p << "Peter tries next. Expected: success." << R << std::endl;
-		Peter.signAForm(Finances);
-		std::cout << "Now signed: "
-					<< (Finances.getStatus() ? "PASS" : "FAIL") << std::endl;
+		Kim.signAForm(Shrubbery);
+		Kim.signAForm(Robot);
+		Kim.signAForm(Pardon);
+		std::cout << "All signed: "
+					<< (Shrubbery.getStatus() && Robot.getStatus()
+						&& Pardon.getStatus() ? "PASS" : "FAIL")
+					<< std::endl;
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << e.what() << R << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 
 	std::cout << M << "\n═══════════════════════════════════════════════" << R << std::endl;
-	std::cout << M << "3. Copying and assigning AForms." << R << std::endl;
+	std::cout << M << "3. Execution needs a signature and a good grade." << R << std::endl;
 	std::cout << M << "═══════════════════════════════════════════════" << R << std::endl;
 
 	try {
-		Bureaucrat Peter("Peter", 75);
-		AForm Original("Finances", 100, 50);
-		AForm Assigned("Travel request", 120, 80);
+		Bureaucrat Kim("Kim", 1);
+		ShrubberyCreationForm Shrubbery("home");
 
-		Peter.signAForm(Original);
-		AForm Copy(Original);
-
-		std::cout << "Original: " << Original << std::endl;
-		std::cout << "Copy: " << Copy << std::endl << std::endl;
-
-		std::cout << p << "Assignment keeps name and grades, copies signed status."
-					<< R << std::endl;
-		Assigned = Original;
-		std::cout << "Assigned: " << Assigned << std::endl;
+		Shrubbery.execute(Kim);
+		std::cout << "FAIL: unsigned form executed." << std::endl;
+	}
+	catch (const AForm::FormNotSignedException &e) {
+		std::cout << "PASS: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << e.what() << R << std::endl;
+		std::cout << "FAIL: " << e.what() << std::endl;
+	}
+
+	try {
+		Bureaucrat Peter("Peter", 140);	// can sign 145, cannot execute 137
+		ShrubberyCreationForm Shrubbery("home");
+
+		Peter.signAForm(Shrubbery);
+		Shrubbery.execute(Peter);
+		std::cout << "FAIL: grade 140 executed a form requiring 137." << std::endl;
+	}
+	catch (const AForm::GradeTooLowException &e) {
+		std::cout << "PASS: " << e.what() << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cout << "FAIL: " << e.what() << std::endl;
 	}
 
 
 	std::cout << M << "\n═══════════════════════════════════════════════" << R << std::endl;
-	std::cout << M << "4. The boundaries: grade 1 and grade 150." << R << std::endl;
+	std::cout << M << "4. Each form executes at its required grade." << R << std::endl;
+	std::cout << M << "═══════════════════════════════════════════════" << R << std::endl;
+
+	try {
+		Bureaucrat Gardener("Gardener", 137);
+		Bureaucrat Engineer("Engineer", 45);
+		Bureaucrat President("President", 5);
+		ShrubberyCreationForm Shrubbery("home");
+		RobotomyRequestForm Robot("Bender");
+		PresidentialPardonForm Pardon("Arthur Dent");
+
+		Gardener.signAForm(Shrubbery);
+		Engineer.signAForm(Robot);
+		President.signAForm(Pardon);
+		std::cout << std::endl;
+
+		Shrubbery.execute(Gardener);
+		std::ifstream Tree("home_shrubbery");
+		std::cout << "home_shrubbery created: "
+					<< (Tree.good() ? "PASS" : "FAIL") << std::endl << std::endl;
+
+		std::cout << "Robotomy: 10 executions, expected about 5 successes." << std::endl << std::endl;
+		int successes = 0;
+		for (int i = 0; i < 10; ++i) {
+			std::ostringstream output;
+			std::streambuf *old = std::cout.rdbuf(output.rdbuf());
+
+			Robot.execute(Engineer);
+			std::cout.rdbuf(old);
+
+			// Keep only the result line, not the drilling noise.
+			std::istringstream captured(output.str());
+			std::string noise;
+			std::string result;
+			std::getline(captured, noise);
+			std::getline(captured, result);
+
+			bool success = result.find("successfully") != std::string::npos;
+			successes += success;
+			std::cout << i + 1 << ". " << (success ? G : RED) << result << R
+						<< std::endl << std::endl;
+		}
+		std::cout << "Successes: " << successes << ", failures: "
+					<< 10 - successes << std::endl << std::endl;
+
+		Pardon.execute(President);
+	}
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+
+
+	std::cout << M << "\n═══════════════════════════════════════════════" << R << std::endl;
+	std::cout << M << "5. executeForm reports success and failure." << R << std::endl;
 	std::cout << M << "═══════════════════════════════════════════════" << R << std::endl;
 
 	try {
 		Bureaucrat Kim("Kim", 1);
 		Bureaucrat Saul("Saul", 150);
-		AForm TopSecret("Top secret", 1, 1);
-		AForm QueueTicket("Queue ticket", 150, 150);
+		ShrubberyCreationForm Shrubbery("home");
+		PresidentialPardonForm Pardon("Ford Prefect");
 
-		Kim.signAForm(TopSecret);
-		Saul.signAForm(QueueTicket);
-		std::cout << TopSecret << std::endl;
-		std::cout << QueueTicket << std::endl;
+		Kim.signAForm(Pardon);
+		std::cout << "Kim executes a signed form:" << std::endl;
+		Kim.executeForm(Pardon);
+		std::cout << "Saul executes it: grade too low." << std::endl;
+		Saul.executeForm(Pardon);
+		std::cout << "Kim executes an unsigned form." << std::endl;
+		Kim.executeForm(Shrubbery);
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << e.what() << R << std::endl;
-	}
-
-
-	std::cout << M << "\n═══════════════════════════════════════════════" << R << std::endl;
-	std::cout << M << "5. Invalid grades are rejected." << R << std::endl;
-	std::cout << M << "═══════════════════════════════════════════════" << R << std::endl;
-
-	try {
-		AForm Bad("Signing grade 0", 0, 50);
-		std::cout << RED << "FAIL: grade 0 accepted." << R << std::endl;
-	}
-	catch (const AForm::GradeTooHighException &e) {
-		std::cout << p << "PASS: " << e.what() << R << std::endl;
-	}
-	catch (const std::exception &e) {
-		std::cout << RED << "FAIL: " << e.what() << R << std::endl;
-	}
-
-	try {
-		AForm Bad("Signing grade 151", 151, 50);
-		std::cout << RED << "FAIL: grade 151 accepted." << R << std::endl;
-	}
-	catch (const AForm::GradeTooLowException &e) {
-		std::cout << p << "PASS: " << e.what() << R << std::endl;
-	}
-	catch (const std::exception &e) {
-		std::cout << RED << "FAIL: " << e.what() << R << std::endl;
-	}
-
-	try {
-		AForm Bad("Execution grade 0", 100, 0);
-		std::cout << RED << "FAIL: grade 0 accepted." << R << std::endl;
-	}
-	catch (const AForm::GradeTooHighException &e) {
-		std::cout << p << "PASS: " << e.what() << R << std::endl;
-	}
-	catch (const std::exception &e) {
-		std::cout << RED << "FAIL: " << e.what() << R << std::endl;
-	}
-
-	try {
-		AForm Bad("Execution grade 151", 100, 151);
-		std::cout << RED << "FAIL: grade 151 accepted." << R << std::endl;
-	}
-	catch (const AForm::GradeTooLowException &e) {
-		std::cout << p << "PASS: " << e.what() << R << std::endl;
-	}
-	catch (const std::exception &e) {
-		std::cout << RED << "FAIL: " << e.what() << R << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 }

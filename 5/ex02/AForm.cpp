@@ -14,7 +14,7 @@
 #include "Colors.hpp"
 
 AForm::AForm() : _name("Paperwork"), _signed(false), _reqSign(70), _reqExec(50) {
-	std::cout << pp << _name << ": Default constructor called" << R << std::endl;
+	// std::cout << pp << _name << ": Default constructor called" << R << std::endl;
 }
 
 AForm::AForm( const std::string &name, int reqSign, int reqExec)
@@ -22,7 +22,7 @@ AForm::AForm( const std::string &name, int reqSign, int reqExec)
 		_signed(false),
 		_reqSign(reqSign),
 		_reqExec(reqExec) {
-	std::cout << pp << _name << ": Parameterizes constructor called" << R << std::endl;
+	// std::cout << pp << _name << ": Parameterizes constructor called" << R << std::endl;
 
 	if (_reqSign < 1 || _reqExec < 1) {
 		throw GradeTooHighException();
@@ -33,11 +33,11 @@ AForm::AForm( const std::string &name, int reqSign, int reqExec)
 }
 
 AForm::AForm( const AForm &other ) : _name(other._name), _signed(other._signed), _reqSign(other._reqSign), _reqExec(other._reqExec) {
-	std::cout << pp << _name << ": Copy constructor called" << R << std::endl;
+	// std::cout << pp << _name << ": Copy constructor called" << R << std::endl;
 }
 
 AForm &AForm::operator=( const AForm &other ) {
-	std::cout << pp << _name << ": Copy assignment operator called" << R << std::endl;
+	// std::cout << pp << _name << ": Copy assignment operator called" << R << std::endl;
 	if (this != &other) {
 		_signed = other._signed;
 	}
@@ -45,7 +45,7 @@ AForm &AForm::operator=( const AForm &other ) {
 }
 
 AForm::~AForm(){
-	std::cout << pp << _name << ": Destructor called" << R << std::endl;
+	// std::cout << pp << _name << ": Destructor called" << R << std::endl;
 }
 
 
@@ -97,12 +97,12 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat) {
 		throw GradeTooLowException();
 }
 
-void	AForm::execute(const Bureaucrat &bureaucrat) {
+void	AForm::execute(const Bureaucrat &bureaucrat) const {
 	int	grade = bureaucrat.getGrade();
 
 	if (!_signed)
 		throw FormNotSignedException();
-	else if (grade >= _reqSign)
+	else if (grade > _reqExec)
 		throw GradeTooLowException();
 	else
 		executeAction();

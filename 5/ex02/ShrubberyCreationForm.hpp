@@ -14,7 +14,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "Colors.hpp"
-#include "AForm.cpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <string>
 
