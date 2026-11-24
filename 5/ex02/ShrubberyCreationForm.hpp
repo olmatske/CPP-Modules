@@ -14,21 +14,21 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "Colors.hpp"
+#include "AForm.cpp"
 #include <iostream>
 #include <string>
 
-class ShrubberyCreationForm {
+class ShrubberyCreationForm : public AForm {
 
 	private:
-		std::string _name = "Bob";
+		std::string _target;
+
+		void	executeAction() const override;
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm( std::string type );
-		ShrubberyCreationForm( const ShrubberyCreationForm &other );
-		ShrubberyCreationForm& operator=( const ShrubberyCreationForm &other );
-		~ShrubberyCreationForm();
 
+		explicit ShrubberyCreationForm(const std::string &target);
+	
 };
 
 #endif

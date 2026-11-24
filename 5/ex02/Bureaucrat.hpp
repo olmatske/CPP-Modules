@@ -36,7 +36,9 @@ class Bureaucrat {
 		int			getGrade()const;
 		void		lowerGrade();		// +1
 		void		increaseGrade();	// -1
-		void		signAForm(AForm &AForm);
+
+		void		signAForm(AForm &form);
+		void		executeForm(AForm const &form) const;
 
 		class	GradeTooHighException : public std::exception {
 			public:
@@ -44,6 +46,11 @@ class Bureaucrat {
 		};
 
 		class	GradeTooLowException : public std::exception {
+			public:
+				const char *what() const noexcept override;
+		};
+
+		class	FormNotSignedException : public std::exception {
 			public:
 				const char *what() const noexcept override;
 		};

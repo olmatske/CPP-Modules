@@ -27,6 +27,7 @@ class PresidentialPardonForm : public AForm {
 
 	public:
 
+		explicit PresidentialPardonForm(const std::string &target);
 	
 };
 

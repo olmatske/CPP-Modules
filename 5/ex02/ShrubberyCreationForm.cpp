@@ -11,30 +11,51 @@
 /* ********************************************************** github/olmatske */
 
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
+#include <stdexcept>
 
-ShrubberyCreationForm::ShrubberyCreationForm() {
-	std::cout << M << "Default constructor called" << R << std::endl;
+ShrubberyCreationForm::ShrubberyCreationForm( const std::string &target )
+	: AForm("ShrubberyCreationForm", 145, 137),
+	  _target(target)
+	{
+	// std::cout << M << "Default constructor called" << R << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string name ) : _name(name) {
-	std::cout << M << "Parameterizes constructor called" << R << std::endl;
-}
+void	ShrubberyCreationForm::executeAction() const {
+	std::ofstream file(_target + "_shrubbery");
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &other ) : _name(other._name) {
-	std::cout << M << "Copy constructor called" << R << std::endl;
-	this->_name = other._name;
-}
-
-ShrubberyCreationForm &ShrubberyCreationForm::operator=( const ShrubberyCreationForm &other ) {
-	std::cout << M << "Copy assignment operator called" << R << std::endl;
-	if (this != &other) {
-		this->_name = other._name;
+	if (!file.is_open())
+		throw std::runtime_error("Could not create shrubbery file");
+	else {
+		file << R"(
+		      *             ,
+                  _/^\_
+                 <     >
+*                 /.-.\         *
+         *        `/&\`                   *
+                 ,@.*;@,
+                /_o.I %_\    *
+   *           (`'--:o(_@;
+              /`;--.,__ `')             *
+             ;@`o % O,*`'`&\
+       *    (`'--)_@ ;o %'()\      *
+            /`;--._`''--._O'@;
+           /&*,()~o`;-.,_ `""`)
+*          /`,@ ;+& () o*`;-';\
+          (`""--.,_0 +% @' &()\
+          /-.,_    ``''--....-'`)  *
+     *    /@%;o`:;'--,.__   __.'\
+         ;*,&(); @ % &^;~`"`o;@();         *
+         /(); o^~; & ().o@*&`;&%O\
+         `"="==""==,,,.,="=="==="`
+      __.----.(\-''#####---...___...-----._
+    '`         \)_`"""""`
+            .--' ')
+          o(  )_-\
+            `"""` `
+		)";
 	}
-	return (*this);
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << M << "Destructor called" << R << std::endl;
-}
 
 

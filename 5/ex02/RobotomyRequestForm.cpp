@@ -11,30 +11,28 @@
 /* ********************************************************** github/olmatske */
 
 #include "RobotomyRequestForm.hpp"
+#include <random>
 
-RobotomyRequestForm::RobotomyRequestForm() {
-	std::cout << M << "Default constructor called" << R << std::endl;
+RobotomyRequestForm::RobotomyRequestForm( const std::string &target )
+	: AForm("RobotomyRequestForm", 72, 45),
+	  _target(target)
+	{
+	// std::cout << M << "Default constructor called" << R << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string name ) : _name(name) {
-	std::cout << M << "Parameterizes constructor called" << R << std::endl;
-}
+void	RobotomyRequestForm::executeAction() const {
+	static std::random_device rd;
+	static std::mt19937 gen(rd());
+	static std::bernoulli_distribution coin(0.5);
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &other ) : _name(other._name) {
-	std::cout << M << "Copy constructor called" << R << std::endl;
-	this->_name = other._name;
-}
+	std::cout << "VRRRRRRRRR - GRGRGRGRGRGRGRGRGR - VRR VRRR " << std::endl;
 
-RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &other ) {
-	std::cout << M << "Copy assignment operator called" << R << std::endl;
-	if (this != &other) {
-		this->_name = other._name;
+	if (coin(gen)) {
+		std::cout << _target << "has been robotomized successfully" << std::endl;
 	}
-	return (*this);
-}
-
-RobotomyRequestForm::~RobotomyRequestForm() {
-	std::cout << M << "Destructor called" << R << std::endl;
+	else {
+		std::cout << "The robotomy on" << _target << " failed" << std::endl; 
+	}
 }
 
 

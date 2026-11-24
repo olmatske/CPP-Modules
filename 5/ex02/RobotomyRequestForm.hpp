@@ -14,21 +14,21 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "Colors.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <string>
 
-class RobotomyRequestForm {
+class RobotomyRequestForm : public AForm {
 
 	private:
-		std::string _name = "Bob";
+		std::string _target;
+
+		void	executeAction() const override;
 
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm( std::string type );
-		RobotomyRequestForm( const RobotomyRequestForm &other );
-		RobotomyRequestForm& operator=( const RobotomyRequestForm &other );
-		~RobotomyRequestForm();
 
+		explicit RobotomyRequestForm(const std::string &target);
+	
 };
 
 #endif

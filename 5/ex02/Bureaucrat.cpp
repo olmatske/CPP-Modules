@@ -78,6 +78,10 @@ const char *Bureaucrat::GradeTooLowException::what() const noexcept {
 	return ("Grade too low");
 }
 
+const char *Bureaucrat::FormNotSignedException::what() const noexcept {
+	return ("Form not signed");
+}
+
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
 	<< ".";
@@ -85,12 +89,22 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 	return (out);
 }
 
-void	Bureaucrat::signAForm(AForm &AForm) {
+void	Bureaucrat::signAForm(AForm &form) {
 	try {
-		AForm.beSigned(*this);
-		std::cout << G << _name << " signed " << AForm.getName() << "." << R << std::endl;
+		form.beSigned(*this);
+		std::cout << G << _name << " signed " << form.getName() << "." << R << std::endl;
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << _name << " could not sign " << AForm.getName() << " because " << e.what() << R << std::endl;
+		std::cout << RED << _name << " could not sign " << form.getName() << " because " << e.what() << R << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form) const {
+	try {
+		form.execute(*this);
+		std::cout << G << _name << " signed " << form.getName() << "." << R << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cout << RED << _name << " could not sign " << form.getName() << " because " << e.what() << R << std::endl;
 	}
 }

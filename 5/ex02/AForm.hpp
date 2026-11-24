@@ -40,7 +40,7 @@ class AForm {
 		int			getReqExec() const;
 
 		void		beSigned(const Bureaucrat &bureaucrat);	// changes form's status to signed
-		void		execute(const Bureaucrat &bureaucrat);
+		void		execute(const Bureaucrat &bureaucrat) const ;
 
 	class	GradeTooHighException : public std::exception {
 		public:
