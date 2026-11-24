@@ -18,24 +18,24 @@
 #include <string>
 
 Intern::Intern() {
-	std::cout << M << "Default constructor called" << R << std::endl;
+	std::cout << pp << "Default constructor called" << R << std::endl;
 }
 
 Intern::Intern( const Intern &other ) {
 	(void)other;
 
-	std::cout << M << "Copy constructor called" << R << std::endl;
+	std::cout << pp << "Copy constructor called" << R << std::endl;
 }
 
 Intern &Intern::operator=( const Intern &other ) {
 	(void)other;
 
-	std::cout << M << "Copy assignment operator called" << R << std::endl;
+	std::cout << pp << "Copy assignment operator called" << R << std::endl;
 	return (*this);
 }
 
 Intern::~Intern() {
-	std::cout << M << "Destructor called" << R << std::endl;
+	std::cout << pp << "Destructor called" << R << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
