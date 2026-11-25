@@ -20,6 +20,22 @@ RobotomyRequestForm::RobotomyRequestForm( const std::string &target )
 	// std::cout << M << "Default constructor called" << R << std::endl;
 }
 
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &other )
+	: AForm(other),
+	  _target(other._target) {
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=( const RobotomyRequestForm &other ) {
+	if (this != &other) {
+		AForm::operator=(other);
+		_target = other._target;
+	}
+	return (*this);
+}
+
+RobotomyRequestForm::~RobotomyRequestForm() {
+}
+
 void	RobotomyRequestForm::executeAction() const {
 	static std::random_device rd;
 	static std::mt19937 gen(rd());

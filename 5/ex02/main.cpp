@@ -57,17 +57,17 @@ int	main() {
 		std::cout << Saul << std::endl;
 		std::cout << Kim << std::endl << std::endl;
 
-		Saul.signAForm(Shrubbery);
-		Saul.signAForm(Robot);
-		Saul.signAForm(Pardon);
+		Saul.signForm(Shrubbery);
+		Saul.signForm(Robot);
+		Saul.signForm(Pardon);
 		std::cout << "All still unsigned: "
 					<< (!Shrubbery.getStatus() && !Robot.getStatus()
 						&& !Pardon.getStatus() ? "PASS" : "FAIL")
 					<< std::endl << std::endl;
 
-		Kim.signAForm(Shrubbery);
-		Kim.signAForm(Robot);
-		Kim.signAForm(Pardon);
+		Kim.signForm(Shrubbery);
+		Kim.signForm(Robot);
+		Kim.signForm(Pardon);
 		std::cout << "All signed: "
 					<< (Shrubbery.getStatus() && Robot.getStatus()
 						&& Pardon.getStatus() ? "PASS" : "FAIL")
@@ -100,7 +100,7 @@ int	main() {
 		Bureaucrat Peter("Peter", 140);	// can sign 145, cannot execute 137
 		ShrubberyCreationForm Shrubbery("home");
 
-		Peter.signAForm(Shrubbery);
+		Peter.signForm(Shrubbery);
 		Shrubbery.execute(Peter);
 		std::cout << "FAIL: grade 140 executed a form requiring 137." << std::endl;
 	}
@@ -124,9 +124,9 @@ int	main() {
 		RobotomyRequestForm Robot("Bender");
 		PresidentialPardonForm Pardon("Arthur Dent");
 
-		Gardener.signAForm(Shrubbery);
-		Engineer.signAForm(Robot);
-		President.signAForm(Pardon);
+		Gardener.signForm(Shrubbery);
+		Engineer.signForm(Robot);
+		President.signForm(Pardon);
 		std::cout << std::endl;
 
 		Shrubbery.execute(Gardener);
@@ -175,7 +175,7 @@ int	main() {
 		ShrubberyCreationForm Shrubbery("home");
 		PresidentialPardonForm Pardon("Ford Prefect");
 
-		Kim.signAForm(Pardon);
+		Kim.signForm(Pardon);
 		std::cout << "Kim executes a signed form:" << std::endl;
 		Kim.executeForm(Pardon);
 		std::cout << "Saul executes it: grade too low." << std::endl;

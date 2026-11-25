@@ -69,7 +69,7 @@ AForm	*Intern::makeForm(std::string name, std::string target) {
 			return form;
 		}
 	}
-	std::cerr << RED << "Intern cannot create form: " << name << R << std::endl;
+	std::cout << RED << "Intern cannot create form: " << name << R << std::endl;
 
 	return nullptr;
 }

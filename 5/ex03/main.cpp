@@ -60,9 +60,9 @@ int	main() {
 		std::cout << *Robot << std::endl;
 		std::cout << *Pardon << std::endl << std::endl;
 
-		Kim.signAForm(*Shrubbery);
-		Kim.signAForm(*Robot);
-		Kim.signAForm(*Pardon);
+		Kim.signForm(*Shrubbery);
+		Kim.signForm(*Robot);
+		Kim.signForm(*Pardon);
 		std::cout << std::endl;
 
 		Kim.executeForm(*Shrubbery);
